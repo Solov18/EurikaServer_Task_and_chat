@@ -1,0 +1,19 @@
+
+server:
+  port: 8765
+
+
+spring:
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      routes:
+        - id: task_list
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/task_list/**
+        - id: demo
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/demo/**
